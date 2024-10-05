@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <title>Form Validation</title>
+    <link rel="stylesheet"  href="styleform.css">
+    <script>
+        function myfun() {
+            const name = document.forms["f1"]["n1"].value;
+            const age = document.forms["f1"]["n2"].value;
+            const gender = document.forms["f1"]["gender"].value;
+            const email = document.forms["f1"]["n9"].value;
+            const dob = document.forms["f1"]["n3"].value;
+            const mobile = document.forms["f1"]["n4"].value;
+            const courseName = document.forms["f1"]["n5"].value;
+            const courseCode = document.forms["f1"]["n6"].value;
+            const courseCredit = document.forms["f1"]["n7"].value;
+            const academicYear = document.forms["f1"]["n10"].value;
+
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            } 
+          
+            if (age == "" || age < 1) {
+                alert("Please enter a valid age");
+                return false;
+            }
+       
+            if (gender == "") {
+                alert("Please select your gender");
+                return false;
+            }
+       
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email == "" || !emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+     
+            if (dob == "") {
+                alert("Please enter your date of birth");
+                return false;
+            }
+      
+            const mobilePattern = /^\d{10}$/;
+            if (mobile == "" || !mobilePattern.test(mobile)) {
+                alert("Please enter a valid 10-digit mobile number");
+                return false;
+            }
+ 
+            if (courseName == "") {
+                alert("Please enter your course name");
+                return false;
+            }
+     
+            if (courseCode == "") {
+                alert("Please enter your course code");
+                return false;
+            }
+     
+            if (courseCredit == "") {
+                alert("Please select your course credit");
+                return false;
+            }
+  
+            if (academicYear == "") {
+                alert("Please select your academic year");
+                return false;
+            }
+ 
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1><center>Course Registration form</center></h1>
+    <FORM name="f1" method="post" action="#" onsubmit="return myfun()">
+        <div class="first">
+            Name:<input type="text" name="n1" placeholder="Enter Your Name"><br>
+            Age:<input type="number" name="n2" placeholder="Enter Your Age"><br>
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female<br>
+            <label>Email:</label><input type="email" name="n9" placeholder="Enter Your Email"><br>
+           
+           
+            D.O.B:<input type="date" name="n3" placeholder="Enter Your DOB"><br>
+            Mobile Number:<input type="text" name="n4" placeholder="Enter Your Contact Number"><br>
+            Course Name:<input type="text" name="n5" placeholder="Enter Your course"><br>
+            Course Code:<input type="text" name="n6" placeholder="Enter Your Course Code"><br>
+            Course Credit:
+            <select name="n7" placeholder="Select Your Course Credit">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+            Academic Year:
+            <select name="n10" placeholder="Select Your Academic Year">
+                <option value="">Select</option>
+                <option value="2022-2023">2022-2023</option>
+                <option value="2023-2024">2023-2024</option>
+                <option value="2024-2025">2024-2025</option>
+                <option value="2025-2026">2025-2026</option>
+            </select><br>
+            <br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </FORM>
+</body>
+</html>
